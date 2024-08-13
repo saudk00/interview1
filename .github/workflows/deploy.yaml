@@ -1,0 +1,21 @@
+name: Deploy Pipeline
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Build Docker Image
+      run: docker build -t hello-world-image:q2 .
+
+    - name: Run Docker Container
+      run: docker run hello-world-image:q2
