@@ -2,9 +2,12 @@ name: Deploy Pipeline
 
 on:
   push:
-    branches: [dev]
+    branches: 
+      - dev
   pull_request:
-    branches: [dev]
+    branches: 
+      - dev
+  workflow_dispatch:
 
 jobs:
   build:
